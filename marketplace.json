@@ -4,6 +4,66 @@
   "maintainer": "roypadina",
   "plugins": [
     {
+      "id": "com.ntfybar.alert-card",
+      "name": "Alert Card",
+      "version": "1.0.0",
+      "description": "Big alert card with Acknowledge and Snooze, optional auto-dismiss, your choice of position, and a times-today count.",
+      "permissions": [
+        "ui",
+        "publish",
+        "storage"
+      ],
+      "source": {
+        "type": "github",
+        "repo": "roypadina/NtfyBar-Plugins",
+        "ref": "main",
+        "path": "plugins/com.ntfybar.alert-card"
+      },
+      "files": {
+        "main.js": "af42dd7511a0c4631c9f56442a56e954fad9dd349f907d166cabde4b9c50ffef",
+        "plugin.json": "930905f2988764b4a2721a57d8364ca64e28d560a372d518c5302ad569221ef1"
+      }
+    },
+    {
+      "id": "com.ntfybar.history-conditions",
+      "name": "Repeat & Burst",
+      "version": "1.0.0",
+      "description": "Conditions on a topic's recent history: 'not seen recently' to calm flapping alerts, 'burst' to catch a storm.",
+      "permissions": [
+        "history.read"
+      ],
+      "source": {
+        "type": "github",
+        "repo": "roypadina/NtfyBar-Plugins",
+        "ref": "main",
+        "path": "plugins/com.ntfybar.history-conditions"
+      },
+      "files": {
+        "main.js": "0fae10e650d77d5d65da85e1cffe3557c6dcf48816be1eab6418bea55e1fdea4",
+        "plugin.json": "f34f7a4c696678abd5522abd08972e254ff8b5a78f265df0a49eb68177729d1f"
+      }
+    },
+    {
+      "id": "com.ntfybar.extract",
+      "name": "Extract",
+      "version": "1.0.0",
+      "description": "Pull a piece out of a message with a regular expression: copy it (codes, IPs) or open it in a link (PR numbers, ids).",
+      "permissions": [
+        "clipboard.write",
+        "openURL"
+      ],
+      "source": {
+        "type": "github",
+        "repo": "roypadina/NtfyBar-Plugins",
+        "ref": "main",
+        "path": "plugins/com.ntfybar.extract"
+      },
+      "files": {
+        "main.js": "d90afee4e59e331800cacb13229f83b46adaf310a943569c486016031bb31a95",
+        "plugin.json": "9630ac73e642f7c5e2323605b72fa7342d34a3bfbc58317d6b9589ef415b2a79"
+      }
+    },
+    {
       "id": "com.ntfybar.ack-button",
       "name": "ACK Button",
       "version": "1.0.0",
@@ -27,8 +87,8 @@
     {
       "id": "com.ntfybar.json-fields",
       "name": "JSON Fields",
-      "version": "1.0.0",
-      "description": "Match JSON messages by a field's value, and show a JSON message as a table with the field's previous value.",
+      "version": "1.1.0",
+      "description": "Match JSON messages by a field's value or a change in it, and show a JSON message as a table with the previous value.",
       "permissions": [
         "ui",
         "history.read"
@@ -40,8 +100,45 @@
         "path": "plugins/com.ntfybar.json-fields"
       },
       "files": {
-        "main.js": "998331d0213f2c216f970ef6b912c8d4d1473596252d325df8133042327c0d59",
-        "plugin.json": "b1aaaaf1cedbc7ff22d9ac8ae7481d8cb5638f3e7fadc65a4df3b6772dfbae88"
+        "main.js": "653d19b2329a68c4e105f5cc4ad73edf643bf724eeb90e1a349602b48812fc4b",
+        "plugin.json": "eab5622cad1ea5c992c663cbd5a4cae805d3ad4836278751fc8ef895433b828c"
+      }
+    },
+    {
+      "id": "com.ntfybar.time-window",
+      "name": "Time Window",
+      "version": "1.0.0",
+      "description": "Condition: the message arrived between two times of day, on the days you pick. Needs no permissions.",
+      "permissions": [],
+      "source": {
+        "type": "github",
+        "repo": "roypadina/NtfyBar-Plugins",
+        "ref": "main",
+        "path": "plugins/com.ntfybar.time-window"
+      },
+      "files": {
+        "main.js": "0f1458e661253fe60217d6847991ea44e2b71d14a16f19444ebc1641a57b8bc0",
+        "plugin.json": "a338940c7ac4985c0efc35a86b3c05be94b8f849cf35045c5ddf302e36345328"
+      }
+    },
+    {
+      "id": "com.ntfybar.reply-buttons",
+      "name": "Reply Buttons",
+      "version": "1.0.0",
+      "description": "Popup with up to three buttons; each sends its own reply to a topic you choose (two-way home automation, approvals).",
+      "permissions": [
+        "ui",
+        "publish"
+      ],
+      "source": {
+        "type": "github",
+        "repo": "roypadina/NtfyBar-Plugins",
+        "ref": "main",
+        "path": "plugins/com.ntfybar.reply-buttons"
+      },
+      "files": {
+        "main.js": "da8334686f7c9fd186578fd1d2c73effaf053eee83bd0d4d1f330800e7da4172",
+        "plugin.json": "8ab5ed8483b2827634a20478fbf9bf88c60433612e60e7bcd7603cd9171b60cd"
       }
     }
   ]

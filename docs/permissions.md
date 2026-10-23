@@ -16,7 +16,7 @@ does not inherit its permissions.
 | *(always)* | Read each message that triggers it — title, text, tags, links — and that topic's label. Never your settings; topic names and server addresses are hidden (best-effort). | `ctx` |
 | `history.read` | Read earlier messages of the topic that triggered it. | `ntfy.history(options)` |
 | `topics.read` | See the labels of all your topics (and, with history access, their messages). | `ntfy.topics()` |
-| `publish` | Send messages to your topics — at most 10 a minute, capped by quiet hours. | `ntfy.publish(message)` |
+| `publish` | Send messages to your topics, now or scheduled — at most 10 a minute, capped by quiet hours. | `ntfy.publish(message)` |
 | `clipboard.write` | Put text on your clipboard. | `ntfy.copy(text)` |
 | `openURL` | Open web links (http/https) in your browser — a link can carry message text to that site. | `ntfy.openURL(url)` |
 | `storage` | Keep up to 1 MB of its own data on this Mac. | `ntfy.storage.get/set/remove` |
@@ -36,13 +36,17 @@ Returns messages (newest first) in the same shape as `ctx.message`.
 
 Returns `[{id, label}]` for every topic the user subscribes to.
 
-### `ntfy.publish({topicId, message, title?, priority?, tags?, click?})` — `publish`
+### `ntfy.publish({topicId, message, title?, priority?, tags?, click?, delay?})` — `publish`
 
 Sends a message to one of the user's topics (by `topicId`) and returns `true` when it was queued.
 `message` is required (≤4096 characters); `priority` 1–5 (default 3), lowered during the user's
 quiet hours; `tags` up to 10; `click` only if http/https. At most 10 publishes a minute per
 plugin. Messages NtfyBar publishes come back on the stream like any other; NtfyBar recognises
 its own and runs no rules on them.
+
+`delay` (NtfyBar 1.1+): seconds until the ntfy server delivers it, 10 – 259200 (3 days). A
+scheduled message is meant to come back — it *does* run rules when it arrives (that's how
+Alert Card's Snooze works), and quiet hours are judged at its arrival time.
 
 ### `ntfy.copy(text)` — `clipboard.write`
 

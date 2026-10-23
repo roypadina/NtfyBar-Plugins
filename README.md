@@ -34,10 +34,15 @@ rule under **Settings › Rules**.
 
 | Plugin | What it does | Permissions |
 |---|---|---|
-| [ACK Button](plugins/com.ntfybar.ack-button) | Popup with an ACK button that sends a short acknowledgement back to the topic the alert came from. | ui, publish, storage |
-| [JSON Fields](plugins/com.ntfybar.json-fields) | Match JSON messages by a field's value; show a JSON message as a table with the field's previous value. | ui, history.read |
+| [Alert Card](plugins/com.ntfybar.alert-card) ⭐ | Big alert card with Acknowledge and Snooze, optional auto-dismiss, position choice and a times-today count. | ui, publish, storage |
+| [Repeat & Burst](plugins/com.ntfybar.history-conditions) ⭐ | Conditions: "not seen recently" (calm flapping alerts) and "burst" (≥ N messages in M minutes). | history.read |
+| [Extract](plugins/com.ntfybar.extract) ⭐ | Copy a regex match (codes, IPs) or open it in a link template (PR numbers). | clipboard.write, openURL |
+| [JSON Fields](plugins/com.ntfybar.json-fields) ⭐ | Match JSON messages by a field's value or a change in it; show a JSON message as a table. | ui, history.read |
+| [ACK Button](plugins/com.ntfybar.ack-button) ⭐ | Popup with an ACK button that replies to the topic the alert came from. | ui, publish, storage |
+| [Time Window](plugins/com.ntfybar.time-window) | Condition: arrived between two times of day on chosen days. A zero-permission example. | — |
+| [Reply Buttons](plugins/com.ntfybar.reply-buttons) | Popup with up to three buttons; each sends its own reply to a topic you pick (two-way home automation). | ui, publish |
 
-Both also ship inside NtfyBar (disabled until you enable them).
+⭐ = also ships inside NtfyBar (off until you enable it). Those update together with the app.
 
 ## Permissions at a glance
 

@@ -68,7 +68,7 @@ Each provider:
 | `kind` | `condition` or `action`. |
 | `name`, `description` | Shown in the rule editor. Description ≤120 characters. |
 | `function` | Name of a global JavaScript function in `entry`. |
-| `params` | Optional fields the user fills in per rule: `{key, label, kind, placeholder}`, `kind` = `text`, `number`, `bool` or `topic`. |
+| `params` | Optional fields the user fills in per rule: `{key, label, kind, placeholder}`, `kind` = `text`, `number`, `bool`, `topic`, or (NtfyBar 1.1+) `choice` with `"choices": ["a", "b"]` (2–20 values of letters, digits, `_` or `-`; the rule gets the chosen value). |
 
 A package with an invalid manifest is not loaded. A provider with a problem (bad id, missing
 function, unknown param kind) is skipped on its own; the rest of the package still works. The
