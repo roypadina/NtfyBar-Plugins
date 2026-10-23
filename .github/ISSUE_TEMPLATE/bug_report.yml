@@ -1,0 +1,25 @@
+name: Plugin bug
+description: A plugin in this marketplace doesn't work as described
+labels: ["bug"]
+body:
+  - type: input
+    id: plugin
+    attributes:
+      label: Plugin id and version
+      placeholder: "com.ntfybar.ack-button 1.0.0"
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What did you expect, and what happened instead? Include any error shown in Settings › Plugins. Don't paste topic names.
+    validations:
+      required: true
+  - type: input
+    id: app
+    attributes:
+      label: NtfyBar version and macOS version
+      placeholder: "NtfyBar 1.0.0, macOS 15.3"
+    validations:
+      required: true

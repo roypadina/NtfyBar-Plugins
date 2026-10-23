@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: NtfyBar app issues
+    url: https://github.com/roypadina/NtfyBar/issues
+    about: Problems with NtfyBar itself (not a specific plugin) go here.

@@ -1,0 +1,15 @@
+name: Plugin idea
+description: Suggest a plugin or an improvement to one
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: What should it do?
+    validations:
+      required: true
+  - type: textarea
+    id: permissions
+    attributes:
+      label: Which permissions would it need?
+      description: See docs/permissions.md.

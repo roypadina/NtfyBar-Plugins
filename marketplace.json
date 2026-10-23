@@ -1,0 +1,48 @@
+{
+  "id": "ntfybar-official",
+  "name": "NtfyBar official plugins",
+  "maintainer": "roypadina",
+  "plugins": [
+    {
+      "id": "com.ntfybar.ack-button",
+      "name": "ACK Button",
+      "version": "1.0.0",
+      "description": "Popup with an ACK button that sends a short acknowledgement back to the topic the alert came from.",
+      "permissions": [
+        "ui",
+        "publish",
+        "storage"
+      ],
+      "source": {
+        "type": "github",
+        "repo": "roypadina/NtfyBar-Plugins",
+        "ref": "main",
+        "path": "plugins/com.ntfybar.ack-button"
+      },
+      "files": {
+        "main.js": "1d2de672b26881e3365473383769394ef5fe6a2d268dd10bca03f3d9fabb041c",
+        "plugin.json": "a120996ac2ba7638d2536a89c186ff187fdb9ef0e269d77733f7fb543aff21c3"
+      }
+    },
+    {
+      "id": "com.ntfybar.json-fields",
+      "name": "JSON Fields",
+      "version": "1.0.0",
+      "description": "Match JSON messages by a field's value, and show a JSON message as a table with the field's previous value.",
+      "permissions": [
+        "ui",
+        "history.read"
+      ],
+      "source": {
+        "type": "github",
+        "repo": "roypadina/NtfyBar-Plugins",
+        "ref": "main",
+        "path": "plugins/com.ntfybar.json-fields"
+      },
+      "files": {
+        "main.js": "998331d0213f2c216f970ef6b912c8d4d1473596252d325df8133042327c0d59",
+        "plugin.json": "b1aaaaf1cedbc7ff22d9ac8ae7481d8cb5638f3e7fadc65a4df3b6772dfbae88"
+      }
+    }
+  ]
+}
