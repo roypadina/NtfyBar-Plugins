@@ -14,8 +14,8 @@
 </div>
 
 NtfyBar is a macOS menu-bar client for [ntfy](https://ntfy.sh). Its rules can use conditions and
-actions from plugins. Plugins run in a sandbox: they see only the message that triggered them, never
-your topic names or server addresses, and they can only do what their declared permissions allow —
+actions from plugins. Plugins run in a sandbox: they see only the message that triggered them, with
+your topic names and server addresses hidden (best-effort — see [Limits of the sandbox](docs/permissions.md#limits-of-the-sandbox)), and they can only do what their declared permissions allow —
 after you agreed.
 
 ## Requirements

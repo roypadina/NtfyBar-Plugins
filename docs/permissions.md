@@ -13,7 +13,7 @@ does not inherit its permissions.
 
 | Permission | What the user sees | API |
 |---|---|---|
-| *(always)* | Read each message that triggers it — title, text, tags, links — and that topic's label. Never topic names, server addresses or your settings. | `ctx` |
+| *(always)* | Read each message that triggers it — title, text, tags, links — and that topic's label. Never your settings; topic names and server addresses are hidden (best-effort). | `ctx` |
 | `history.read` | Read earlier messages of the topic that triggered it. | `ntfy.history(options)` |
 | `topics.read` | See the labels of all your topics (and, with history access, their messages). | `ntfy.topics()` |
 | `publish` | Send messages to your topics — at most 10 a minute, capped by quiet hours. | `ntfy.publish(message)` |

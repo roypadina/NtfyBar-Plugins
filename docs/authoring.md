@@ -114,7 +114,7 @@ same way; NtfyBar and the rule's other steps keep running.
 }
 ```
 
-Plugins never see topic names or server addresses: wherever one appears in a message (links,
+Topic names and server addresses are hidden from plugins (best-effort): wherever one appears in a message (links,
 action URLs, headers, bodies), it is replaced by `[topic]` or `[server]`.
 
 ### `params`
