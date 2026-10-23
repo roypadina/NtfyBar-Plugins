@@ -7,6 +7,7 @@
 **The official plugin marketplace for [NtfyBar](https://github.com/roypadina/NtfyBar) — sandboxed JavaScript conditions, actions and popups for your ntfy notifications.**
 
 [![Validate](https://github.com/roypadina/NtfyBar-Plugins/actions/workflows/validate.yml/badge.svg)](https://github.com/roypadina/NtfyBar-Plugins/actions/workflows/validate.yml)
+[![Website](https://img.shields.io/badge/website-apps.roypadina-2F62E6)](https://apps.roypadina.synology.me/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 [![Ko-fi](https://img.shields.io/badge/Ko--fi-support-F16061?logo=ko-fi&logoColor=white)](https://ko-fi.com/roypadina)
 [![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)](CONTRIBUTING.md)
@@ -65,6 +66,15 @@ files, changing settings, subscribing to topics. Details: [docs/permissions.md](
 
 Pull requests with new plugins are welcome — see [CONTRIBUTING.md](CONTRIBUTING.md). Report security
 problems privately: [SECURITY.md](SECURITY.md).
+
+## More Mac apps by Roy
+
+Free, open-source Mac menu-bar apps and terminal tools, all on one site: **[apps.roypadina.synology.me](https://apps.roypadina.synology.me/)**.
+
+- [NtfyBar](https://apps.roypadina.synology.me/apps/ntfybar/) — ntfy notifications on your Mac: popups that stay, rules, commands, plugins.
+- [MaccyPlus](https://apps.roypadina.synology.me/apps/maccyplus/) — Maccy, plus automation: rules, hotkeys, plugins and a CLI for AI agents.
+- [MeetAlert](https://apps.roypadina.synology.me/apps/meetalert/) — Meeting alerts you can't miss: a popup that stays, a phone push that escalates.
+- [LanGuard](https://apps.roypadina.synology.me/apps/languard/) — Wi-Fi off when you're wired. Back on when you're not.
 
 ## Support
 
