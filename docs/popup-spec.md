@@ -11,6 +11,8 @@ return {
     icon: "checkmark.seal",            // optional SF Symbol name
     accent: "success",                 // info (default) | success | warning | critical
     timeoutSec: 30,                    // optional, 0–600; 0 or missing = stays until dismissed
+    position: "topRight",              // optional (NtfyBar 1.1+): topCenter | topRight; missing = the topic's setting
+    level: "overFullScreen",           // optional (NtfyBar 1.1+): floating | overFullScreen (also over full-screen apps)
     blocks: [
       { text: "Build **#482** is live." },          // markdown, ≤4096 characters
       { kv: [["Branch", "main"], ["Took", "3 m 12 s"]] },  // table, ≤50 rows

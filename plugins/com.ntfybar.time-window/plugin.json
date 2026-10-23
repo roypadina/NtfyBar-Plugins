@@ -1,0 +1,27 @@
+{
+  "id": "com.ntfybar.time-window",
+  "name": "Time Window",
+  "version": "1.0.0",
+  "description": "Condition: the message arrived between two times of day, on the days you pick. Needs no permissions.",
+  "author": { "name": "NtfyBar", "url": "https://github.com/roypadina/NtfyBar-Plugins" },
+  "apiVersion": 1,
+  "minAppVersion": "1.1.0",
+  "entry": "main.js",
+  "files": ["plugin.json", "main.js"],
+  "permissions": [],
+  "permissionReasons": {},
+  "providers": [
+    {
+      "id": "com.ntfybar.time-window.within",
+      "kind": "condition",
+      "name": "Arrived between",
+      "description": "True when the message time is within From–Until (24-hour HH:MM; may cross midnight) on the chosen days.",
+      "function": "within",
+      "params": [
+        { "key": "from", "label": "From (HH:MM)", "kind": "text", "placeholder": "09:00" },
+        { "key": "to", "label": "Until (HH:MM)", "kind": "text", "placeholder": "18:00" },
+        { "key": "days", "label": "Days", "kind": "choice", "choices": ["every-day", "mon-fri", "sun-thu", "weekend-sat-sun", "weekend-fri-sat"] }
+      ]
+    }
+  ]
+}
