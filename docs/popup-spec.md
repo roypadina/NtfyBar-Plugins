@@ -33,7 +33,9 @@ Rules:
   (logged; nothing is shown).
 - At most 20 blocks. A block with no known key is skipped.
 - Button `id`: letters, digits, `_` and `-`, ≤40 characters, unique within the popup. Labels ≤40.
-- NtfyBar always adds a **Dismiss** button. If no button is `prominent`, the first one is.
+- NtfyBar always adds a **Dismiss** button. **Return** presses your `prominent` button; if you
+  marked none, Return presses Dismiss — a popup that just appeared never fires one of your
+  buttons by accident.
 - Markdown links in text blocks open only if they are http/https.
 
 ## Buttons

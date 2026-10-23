@@ -18,7 +18,7 @@ does not inherit its permissions.
 | `topics.read` | See the labels of all your topics (and, with history access, their messages). | `ntfy.topics()` |
 | `publish` | Send messages to your topics — at most 10 a minute, capped by quiet hours. | `ntfy.publish(message)` |
 | `clipboard.write` | Put text on your clipboard. | `ntfy.copy(text)` |
-| `openURL` | Open web links (http/https) in your browser. | `ntfy.openURL(url)` |
+| `openURL` | Open web links (http/https) in your browser — a link can carry message text to that site. | `ntfy.openURL(url)` |
 | `storage` | Keep up to 1 MB of its own data on this Mac. | `ntfy.storage.get/set/remove` |
 | `ui` | Show its own popups with buttons. | return `{popup: …}` |
 
@@ -50,7 +50,9 @@ Replaces the clipboard with `text` (≤1 MB).
 
 ### `ntfy.openURL(url)` — `openURL`
 
-Opens an http or https URL in the default browser. Anything else (`file:`, app schemes) fails.
+Opens an http or https URL in the default browser — at most 10 a minute, and not while
+notifications are paused. Anything else (`file:`, app schemes) fails. Note for users: a URL can
+carry message text to the site it opens, so grant this only to plugins you trust.
 
 ### `ntfy.storage` — `storage`
 
@@ -73,3 +75,13 @@ clipboard or files, read or change settings and rules, subscribe or unsubscribe 
 topic names, server addresses or credentials.
 
 A failed call (permission missing or switched off, bad arguments) throws a JavaScript error.
+
+## Limits of the sandbox
+
+- **Redaction is best-effort.** NtfyBar replaces every topic name and server address it finds in
+  the text it hands to a plugin. It can't recognise them if the sender encoded or split them, and a
+  plugin with both `publish` and `history.read` could test guesses. Keep secrets out of message text.
+- **Time:** 1 s per call and at most 5 s of JavaScript time per minute; beyond that the plugin is
+  disabled until you reload plugins.
+- **Memory:** JavaScriptCore has no per-plugin memory limit; a plugin can briefly use a lot of
+  memory. Only install plugins you trust.

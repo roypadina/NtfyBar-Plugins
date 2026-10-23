@@ -46,11 +46,11 @@ Files sit directly in the folder (no subfolders). Every file must be listed in `
 
 | Field | Rules |
 |---|---|
-| `id` | Lowercase reverse-DNS (`com.example.name`), ≤100 characters. Equals the folder name. |
+| `id` | Lowercase reverse-DNS (`com.example.name`), ≤100 characters. Equals the folder name. `com.ntfybar.*` is reserved for official plugins. |
 | `name` | ≤60 characters. |
 | `version` | Your version string, e.g. `1.2.0`. |
 | `description` | Required, ≤120 characters. |
-| `author` | Optional `{name, url}`. |
+| `author` | Optional `{name, url}`. The name "NtfyBar" is reserved for official plugins. |
 | `apiVersion` | `1`. |
 | `minAppVersion` | Optional. Oldest NtfyBar version that can run the plugin. |
 | `entry` | The JavaScript file NtfyBar runs. Must be listed in `files`. |
@@ -150,7 +150,8 @@ The methods are described in [permissions.md](permissions.md).
 3. **Settings › Rules** → add a rule that uses your condition or action.
 4. After editing files, press **Reload Plugins**.
 
-Local plugins are marked **Unverified source**. Errors show in the Plugins tab; details in the log:
+Local plugins are marked **Unverified source**. Errors (bad manifest, skipped providers) show in
+the Plugins tab; runtime errors from your functions are in the log:
 
 ```sh
 /usr/bin/log show --last 10m --predicate 'subsystem == "com.padina.ntfybar" AND category == "plugins"'
@@ -163,6 +164,8 @@ Local plugins are marked **Unverified source**. Errors show in the Plugins tab; 
 | One file | 2 MB |
 | Whole package | 10 MB |
 | One call | 1 s (3 timeouts → disabled until reload) |
+| JavaScript time | 5 s per minute in total (more → disabled until reload) |
+| `ntfy.openURL` | 10 per minute; nothing opens while notifications are paused |
 | `ntfy.history` | 200 messages per call |
 | `ntfy.publish` | 10 per minute per plugin; quiet hours cap the priority |
 | `ntfy.storage` | 1 MB per plugin |

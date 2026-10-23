@@ -18,6 +18,7 @@ ID = re.compile(r"^[a-z0-9-]+(\.[a-z0-9-]+)+$")
 SAFE_NAME = re.compile(r"^[A-Za-z0-9_.-]+$")
 PERMISSIONS = {"history.read", "topics.read", "publish", "clipboard.write", "openURL", "storage", "ui"}
 MAX_FILE = 2 * 1024 * 1024
+MAX_PACKAGE = 10 * 1024 * 1024
 
 
 def sha256(path):
@@ -56,6 +57,13 @@ def main():
             continue
         if manifest.get("id") != pid:
             errors.append(f"{where} plugin.json id differs from the folder / entry")
+        if not 0 < len(str(manifest.get("description", ""))) <= 120:
+            errors.append(f"{where} description is required, up to 120 characters")
+        for prov in manifest.get("providers", []):
+            if not str(prov.get("id", "")).startswith(pid + "."):
+                errors.append(f"{where} provider id {prov.get('id')} must start with {pid}.")
+            if not 0 < len(str(prov.get("description", ""))) <= 120:
+                errors.append(f"{where} provider {prov.get('id')} description is required, up to 120 characters")
         for key in ("name", "version", "description"):
             if entry.get(key) != manifest.get(key):
                 errors.append(f"{where} {key} differs between marketplace.json and plugin.json")
@@ -76,6 +84,9 @@ def main():
         for name in listed:
             if not SAFE_NAME.match(name) or name.startswith("."):
                 errors.append(f"{where} unsafe file name {name}")
+        total = sum(os.path.getsize(os.path.join(folder, n)) for n in listed if os.path.isfile(os.path.join(folder, n)))
+        if total > MAX_PACKAGE:
+            errors.append(f"{where} package is larger than 10 MB")
         if update:
             entry["files"] = {n: sha256(os.path.join(folder, n)) for n in sorted(listed) if os.path.isfile(os.path.join(folder, n))}
             continue
